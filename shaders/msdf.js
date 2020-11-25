@@ -20,17 +20,27 @@ module.exports = function createMSDFShader (opt) {
     uniforms: {
       opacity: { type: 'f', value: opacity },
       map: { type: 't', value: map || new THREE.Texture() },
-      color: { type: 'c', value: new THREE.Color(color) }
+      color: { type: 'c', value: new THREE.Color(color) },
+      center: {type: 'vec2', value: new THREE.Vector2(0.5,0.5)}
     },
     vertexShader: [
       'attribute vec2 uv;',
       'attribute vec4 position;',
       'uniform mat4 projectionMatrix;',
       'uniform mat4 modelViewMatrix;',
+      'uniform float rotation;',
+      'uniform vec2 center;',
       'varying vec2 vUv;',
       'void main() {',
       'vUv = uv;',
-      'gl_Position = projectionMatrix * modelViewMatrix * position;',
+      'vec4 mvPosition = modelViewMatrix * vec4( 0.0, 0.0, 0.0, 1.0 );',
+      'vec2 alignedPosition = ( position.xy - ( center - vec2( 0.5 ) ) );',
+      'vec2 rotatedPosition;',
+      'float PI = 3.1415926538;',
+      'rotatedPosition.x = sin( rotation ) * alignedPosition.y + cos( rotation ) * alignedPosition.x;',
+      'rotatedPosition.y = cos( rotation ) * (-alignedPosition.y) - sin( rotation ) * (-alignedPosition.x);',
+      'mvPosition.xy += rotatedPosition;',
+      'gl_Position = projectionMatrix  * mvPosition;',
       '}'
     ].join('\n'),
     fragmentShader: [
