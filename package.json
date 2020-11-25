@@ -1,13 +1,13 @@
 {
-  "name": "three-bmfont-text",
-  "version": "2.3.0",
+  "name": "@srinivasprabhu/three-bmfont-text",
+  "version": "1.0.0",
   "description": "renders BMFont files in ThreeJS with word-wrapping",
   "main": "index.js",
   "license": "MIT",
   "author": {
-    "name": "Matt DesLauriers",
-    "email": "dave.des@gmail.com",
-    "url": "https://github.com/mattdesl"
+    "name": "Srinivas Prabhu",
+    "email": "srinivasprabhu794@gmail.com",
+    "url": "https://github.com/SrinivasPrabhu794/"
   },
   "standard": {
     "globals": [
@@ -70,10 +70,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/Jam3/three-bmfont-text.git"
+    "url": "git://github.com/SrinivasPrabhu794/three-bmfont-text.git"
   },
-  "homepage": "https://github.com/Jam3/three-bmfont-text",
+  "homepage": "https://github.com/SrinivasPrabhu794/three-bmfont-text",
   "bugs": {
-    "url": "https://github.com/Jam3/three-bmfont-text/issues"
+    "url": "https://github.com/SrinivasPrabhu794/three-bmfont-text/issues"
   }
 }
